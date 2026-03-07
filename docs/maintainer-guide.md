@@ -56,6 +56,19 @@ This guide documents processes for maintaining the repository.
 - Prefer under-claiming to over-promising
 - Link to the most authoritative source available
 
+### Automatic Search Permission
+
+**AUTHORIZED:** The maintainer grants permission for automated tools and AI assistants
+to search the web and verify opportunity information without requiring explicit approval
+for each search. This includes:
+
+- Searching for official program pages
+- Verifying deadlines and eligibility on official websites
+- Cross-referencing information from multiple sources
+- Fetching and parsing publicly available program information
+
+This permission is granted to expedite the curation process while maintaining accuracy.
+
 ---
 
 ## Initial Curation Strategy
