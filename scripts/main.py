@@ -9,6 +9,7 @@ from .config import CSV_PATH, README_PATH
 from .validate import validate_csv
 from .verifier.verify import verify_all_links
 from .generator.readme import update_readme
+from .enricher.pipeline import run_full_pipeline
 
 
 def cmd_validate(args):
@@ -55,10 +56,40 @@ def cmd_scrape(args):
     """Run scrapers (placeholder for now)."""
     print("Scraping is not yet fully implemented.")
     print("Sources requested:", args.sources)
+    return 0
 
-    # TODO: Implement scraping pipeline
-    # For now, just validate that the infrastructure works
 
+def cmd_enrich(args):
+    """Enrich URLs into full opportunity records."""
+    # Collect URLs from args and/or file
+    urls = list(args.urls) if args.urls else []
+
+    if args.file:
+        try:
+            with open(args.file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and line.startswith('http'):
+                        urls.append(line)
+        except FileNotFoundError:
+            print(f"File not found: {args.file}")
+            return 1
+
+    if not urls:
+        print("No URLs provided. Use positional args or --file.")
+        return 1
+
+    print(f"Enriching {len(urls)} URL(s)...")
+
+    counts = run_full_pipeline(
+        urls=urls,
+        csv_path=CSV_PATH,
+        use_search=not args.no_search,
+        dry_run=args.dry_run,
+    )
+
+    if counts["errors"] == len(urls):
+        return 1
     return 0
 
 
@@ -87,6 +118,19 @@ def main():
     scrape_parser.add_argument('--sources', type=str, default='web',
                                help="Comma-separated list of sources (web,google-linkedin)")
 
+    # Enrich command
+    enrich_parser = subparsers.add_parser(
+        'enrich',
+        help='Enrich URLs into full opportunity records and add to CSV',
+    )
+    enrich_parser.add_argument('urls', nargs='*', help='One or more URLs to enrich')
+    enrich_parser.add_argument('--file', '-f', type=str,
+                               help='File with one URL per line')
+    enrich_parser.add_argument('--dry-run', action='store_true',
+                               help='Show results without modifying CSV or README')
+    enrich_parser.add_argument('--no-search', action='store_true',
+                               help='Skip web search fallback for missing fields')
+
     args = parser.parse_args()
 
     if args.command == 'validate':
@@ -97,6 +141,8 @@ def main():
         sys.exit(cmd_generate(args))
     elif args.command == 'scrape':
         sys.exit(cmd_scrape(args))
+    elif args.command == 'enrich':
+        sys.exit(cmd_enrich(args))
     else:
         parser.print_help()
         sys.exit(1)

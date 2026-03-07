@@ -85,9 +85,9 @@ def format_compensation(comp: str, details: str) -> str:
     # If we have details with dollar amounts, use that
     if details and '$' in details:
         # Shorten if too long
-        if len(details) > 30:
-            # Extract just the dollar amount
-            match = re.search(r'\$[\d,]+k?', details, re.IGNORECASE)
+        if len(details) > 40:
+            # Extract dollar amount with optional suffix (k, K, M, B)
+            match = re.search(r'\$[\d,]+(?:\.\d+)?(?:\s*[kKMB])?', details)
             if match:
                 return match.group(0)
         return details
@@ -279,6 +279,15 @@ Primary geographic focus: **United States and Canada**, though some programs hav
 
 {generate_opportunity_table(cat_opps, include_status=True)}
 </details>
+
+"""
+
+    # Full data link
+    readme += """### Full Data
+
+The tables above are a summary view. For the complete dataset with all fields (eligibility, location, duration, tags, and more):
+
+- **[View full CSV](data/opportunities.csv)** — download or view all fields, filter in Excel/Google Sheets
 
 """
 
