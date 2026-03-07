@@ -59,6 +59,9 @@ yarn-error.log*
 scratch/
 temp/
 draft/
+LOCAL_SETUP.md
+CLAUDE.md
+*.local.md
 
 # Secrets (should never be committed)
 *.secret
