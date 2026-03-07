@@ -1,0 +1,248 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STEM Opportunity",
+  "description": "Schema for opportunities in the awesome-stem-opportunities repository",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "organization",
+    "category",
+    "url"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier (kebab-case: org-name-program-name)",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Official program name",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "organization": {
+      "type": "string",
+      "description": "Sponsoring organization or company",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary opportunity category",
+      "enum": [
+        "research",
+        "fellowship",
+        "accelerator",
+        "grant",
+        "scholarship",
+        "ecosystem",
+        "innovation",
+        "leadership"
+      ]
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "More specific classification within category",
+      "enum": [
+        "reu",
+        "industry_research",
+        "academic_research",
+        "cohort_fellowship",
+        "technical_fellowship",
+        "founder_fellowship",
+        "startup_accelerator",
+        "student_incubator",
+        "project_grant",
+        "research_grant",
+        "travel_grant",
+        "merit_scholarship",
+        "need_based_scholarship",
+        "field_specific_scholarship",
+        "vc_fellowship",
+        "talent_network",
+        "founder_network",
+        "hackathon",
+        "competition",
+        "challenge",
+        "community_program",
+        "technical_leadership",
+        "other"
+      ]
+    },
+    "region": {
+      "type": "string",
+      "description": "Geographic region of eligibility or program location",
+      "enum": [
+        "us",
+        "canada",
+        "us_canada",
+        "north_america",
+        "global",
+        "specific"
+      ]
+    },
+    "country": {
+      "type": "array",
+      "description": "Specific countries (ISO 3166-1 alpha-2 codes)",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}$"
+      }
+    },
+    "audience": {
+      "type": "array",
+      "description": "Target applicant groups",
+      "items": {
+        "type": "string",
+        "enum": [
+          "undergrad",
+          "masters",
+          "phd",
+          "recent_grad",
+          "early_career",
+          "founder",
+          "high_school"
+        ]
+      }
+    },
+    "eligibility": {
+      "type": "string",
+      "description": "Brief eligibility summary (e.g., citizenship, enrollment requirements)",
+      "maxLength": 200
+    },
+    "url": {
+      "type": "string",
+      "description": "Official program page URL",
+      "format": "uri"
+    },
+    "apply_url": {
+      "type": "string",
+      "description": "Direct application URL (if different from program page)",
+      "format": "uri"
+    },
+    "deadline": {
+      "type": "string",
+      "description": "Application deadline (YYYY-MM-DD, or month name for recurring)",
+      "pattern": "^(\\d{4}-\\d{2}-\\d{2}|[A-Za-z]+|rolling|tba|varies)$"
+    },
+    "deadline_type": {
+      "type": "string",
+      "description": "Nature of the deadline",
+      "enum": [
+        "fixed",
+        "rolling",
+        "multiple_rounds",
+        "tba",
+        "varies_by_track"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "Current application status",
+      "enum": [
+        "open",
+        "closed",
+        "upcoming",
+        "unknown"
+      ]
+    },
+    "compensation": {
+      "type": "string",
+      "description": "Funding/compensation type",
+      "enum": [
+        "paid",
+        "stipend",
+        "grant",
+        "scholarship",
+        "equity",
+        "unpaid",
+        "varies",
+        "unknown"
+      ]
+    },
+    "compensation_details": {
+      "type": "string",
+      "description": "Specific compensation information",
+      "maxLength": 100
+    },
+    "location_type": {
+      "type": "string",
+      "description": "Program modality",
+      "enum": [
+        "in_person",
+        "remote",
+        "hybrid",
+        "varies"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "description": "Physical location if applicable",
+      "maxLength": 100
+    },
+    "duration": {
+      "type": "string",
+      "description": "Program length (e.g., '10 weeks', '1 year', 'ongoing')",
+      "maxLength": 50
+    },
+    "cohort_season": {
+      "type": "string",
+      "description": "When the program typically runs",
+      "enum": [
+        "spring",
+        "summer",
+        "fall",
+        "winter",
+        "year_round",
+        "varies"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Additional searchable tags",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the opportunity",
+      "maxLength": 300
+    },
+    "source": {
+      "type": "string",
+      "description": "Where this listing was discovered",
+      "maxLength": 200
+    },
+    "source_type": {
+      "type": "string",
+      "description": "Type of source",
+      "enum": [
+        "official",
+        "linkedin",
+        "newsletter",
+        "community",
+        "manual",
+        "scraped"
+      ]
+    },
+    "date_added": {
+      "type": "string",
+      "description": "When entry was added (YYYY-MM-DD)",
+      "format": "date"
+    },
+    "last_verified": {
+      "type": "string",
+      "description": "When entry was last verified (YYYY-MM-DD)",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes or additional context",
+      "maxLength": 300
+    }
+  },
+  "additionalProperties": false
+}

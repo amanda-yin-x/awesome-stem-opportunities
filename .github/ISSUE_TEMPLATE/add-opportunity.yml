@@ -1,0 +1,140 @@
+name: Add New Opportunity
+description: Submit a fellowship, research program, grant, or other STEM opportunity
+title: "[Add] "
+labels: ["new-opportunity"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing! Please fill out the details below.
+
+        **Before submitting**, please:
+        - Search existing entries to avoid duplicates
+        - Verify information on the official program website
+        - Ensure this is not an internship or job posting
+
+  - type: input
+    id: name
+    attributes:
+      label: Program Name
+      description: Official name of the opportunity
+      placeholder: "e.g., Neo Scholar"
+    validations:
+      required: true
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: Company, foundation, or institution running the program
+      placeholder: "e.g., Neo"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Official Program URL
+      description: Link to the official program page
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: input
+    id: apply_url
+    attributes:
+      label: Application URL
+      description: Direct link to apply (if different from program page)
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Primary type of opportunity
+      options:
+        - Research (REU, industry research, lab placement)
+        - Fellowship (selective cohort program)
+        - Accelerator (startup accelerator/incubator)
+        - Grant (project funding, research grant)
+        - Scholarship (merit/need-based award)
+        - Ecosystem (VC fellowship, talent network)
+        - Innovation (hackathon, competition)
+        - Leadership (community/technical leadership program)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: audience
+    attributes:
+      label: Target Audience
+      description: Who is eligible? Select all that apply.
+      options:
+        - label: Undergraduate students
+        - label: Master's students
+        - label: PhD students
+        - label: Recent graduates (within 1-2 years)
+        - label: Early career professionals
+        - label: Student founders
+        - label: High school students
+
+  - type: checkboxes
+    id: region
+    attributes:
+      label: Region/Eligibility
+      description: Geographic eligibility or program location
+      options:
+        - label: United States
+        - label: Canada
+        - label: Global / No geographic restriction
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Application Deadline
+      description: "Use format: Month name (e.g., 'February'), specific date (YYYY-MM-DD), 'rolling', or 'TBA'"
+      placeholder: "e.g., February or 2024-02-15 or rolling"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Brief Description
+      description: What makes this program notable? Include funding amount, duration, or other key details. (Max 300 characters)
+      placeholder: "Highly selective fellowship for technical undergrads. Includes $10K grant and mentorship from industry leaders."
+    validations:
+      required: true
+
+  - type: textarea
+    id: eligibility
+    attributes:
+      label: Eligibility Notes
+      description: Any specific requirements (citizenship, enrollment status, field of study, etc.)
+      placeholder: "e.g., Must be enrolled full-time at a US university. Open to CS, engineering, and related majors."
+    validations:
+      required: false
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why This Opportunity Matters
+      description: Optional context on why this should be included
+      placeholder: "Strong alumni network, unique access to X, competitive funding, etc."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification
+      description: Please confirm the following
+      options:
+        - label: I have verified this information on the official program website
+          required: true
+        - label: This is not an internship or full-time job posting
+          required: true
+        - label: I have searched and this is not a duplicate entry
+          required: true

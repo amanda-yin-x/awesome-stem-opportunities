@@ -1,0 +1,68 @@
+name: Report Outdated Entry
+description: Report an opportunity with incorrect, outdated, or broken information
+title: "[Update] "
+labels: ["outdated", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us keep the data accurate! Use this form to report issues with existing entries.
+
+  - type: input
+    id: opportunity_name
+    attributes:
+      label: Opportunity Name
+      description: Name of the program that needs updating
+      placeholder: "e.g., Neo Scholar"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Type of Issue
+      options:
+        - Broken link (URL no longer works)
+        - Program discontinued / no longer exists
+        - Incorrect deadline
+        - Incorrect eligibility information
+        - Wrong category or classification
+        - Outdated description
+        - Other factual error
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_info
+    attributes:
+      label: Current (Incorrect) Information
+      description: What does the entry currently say?
+      placeholder: "The deadline is listed as February, but..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct_info
+    attributes:
+      label: Correct Information
+      description: What should it say instead? Include source if possible.
+      placeholder: "The deadline is actually March 15. Source: [official website link]"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      description: Link to official source confirming the correct information
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant details
+    validations:
+      required: false
