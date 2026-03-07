@@ -274,6 +274,10 @@ Before adding entries, search by:
 
 Reference `data/schema.json` for valid enum values. Don't introduce new values without updating schema.
 
+### Empty Categories
+
+When generating the README, categories with no opportunities are automatically hidden. Do not display empty category sections — the generator skips them. This keeps the README clean and focused on what's actually available.
+
 ### Multi-value Field Formatting
 
 Use pipe separator `|` for arrays:
