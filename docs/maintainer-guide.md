@@ -4,12 +4,57 @@ This guide documents processes for maintaining the repository.
 
 ## Table of Contents
 
+- [Verification Rules](#verification-rules)
 - [Initial Curation Strategy](#initial-curation-strategy)
 - [Reviewing Contributions](#reviewing-contributions)
 - [Verifying Entries](#verifying-entries)
 - [Managing Entry Lifecycle](#managing-entry-lifecycle)
 - [Data Consistency](#data-consistency)
 - [Future Automation](#future-automation)
+
+---
+
+## Verification Rules
+
+**STRICT REQUIREMENT:** Every opportunity must be verified before adding to the repository.
+
+### Mandatory Verification Process
+
+1. **Visit the official website** — Never rely solely on third-party sources, LinkedIn posts, or newsletters
+2. **Verify all key fields:**
+   - Deadline (exact date, not approximate)
+   - Eligibility requirements (citizenship, enrollment status, age limits)
+   - Compensation details (exact amounts, equity terms)
+   - Program dates and duration
+   - Application URL (must be working)
+3. **Cross-reference** — If info came from social media, confirm on official site
+4. **Document source** — Record where info was found in `source` field
+5. **Timestamp verification** — Always update `last_verified` field
+
+### Required Fields to Verify
+
+| Field | Verification Method |
+|-------|---------------------|
+| `deadline` | Check official application page |
+| `eligibility` | Read full eligibility section on program page |
+| `compensation` | Confirm exact amounts/terms on official site |
+| `status` | Verify application is actually open |
+| `url` | Click and confirm page loads correctly |
+
+### Red Flags
+
+- Deadline only mentioned in social media post, not on official site
+- Vague eligibility ("students welcome") without specifics
+- No official website or application link
+- Information only available in screenshots
+- Conflicting dates across sources
+
+### When Information is Unclear
+
+- Mark field as `unknown` or `varies`
+- Add clarifying note in `notes` field
+- Prefer under-claiming to over-promising
+- Link to the most authoritative source available
 
 ---
 

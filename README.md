@@ -72,19 +72,16 @@ See [docs/taxonomy.md](docs/taxonomy.md) for detailed category definitions.
 
 ## Featured Opportunities
 
-A selection of well-known, recurring programs. See the [full data file](data/opportunities.csv) for complete listings.
+See the [full data file](data/opportunities.csv) for complete listings with all details.
 
-| Opportunity | Organization | Category | Region | Deadline | Audience |
-|-------------|--------------|----------|--------|----------|----------|
-| [Interact Fellowship](https://joininteract.com/) | Interact | Fellowship | US/CA | Jan | Undergrad, Grad |
-| [Neo Scholar](https://neo.com/scholars) | Neo | Fellowship | US/CA | Feb | Undergrad |
-| [Kleiner Perkins Fellows](https://fellows.kleinerperkins.com/) | Kleiner Perkins | Ecosystem | US | Oct | Undergrad, Grad |
-| [8VC Fellowship](https://www.8vc.com/fellowship) | 8VC | Ecosystem | US | Rolling | Undergrad, Grad |
-| [KPCB Product Fellows](https://fellows.kleinerperkins.com/) | Kleiner Perkins | Fellowship | US | Oct | Undergrad, Grad |
-| [Microsoft Research Internship](https://www.microsoft.com/en-us/research/academic-program/undergraduate-research-internship-computing/) | Microsoft Research | Research | US/CA | Fall | Undergrad |
-| [Google CSRMP](https://research.google/outreach/csrmp/) | Google | Research | US | Varies | Undergrad |
-| [Thiel Fellowship](https://thielfellowship.org/) | Thiel Foundation | Grant | US | Varies | Under 23 |
-| [Emergent Ventures](https://www.mercatus.org/emergent-ventures) | Mercatus Center | Grant | Global | Rolling | All |
+| Opportunity | Organization | Category | Deadline | Compensation | Notes |
+|-------------|--------------|----------|----------|--------------|-------|
+| [YC Startup School 2026](https://events.ycombinator.com/startup-school-2026) | Y Combinator | Accelerator | Mar 8 | Travel covered | 2-day in-person event in SF (Jul 25-26) |
+| [The Eigenprize](https://eigen.build) | Eigenprize | Grant | Mar 9 | Up to $100k | 10-min app, no strings attached |
+| [Comma Zero 2.0](https://comma.vc) | Comma VC | Ecosystem | Mar 13 | Equity funding | First check for student/young founders |
+| [AI4PH Internship](https://ai4ph-hrtp.ca/internships/) | AI4PH-HRTP | Research | Mar 16 | $10k CAD | Part-time, health AI, Canada only |
+| [OSV Fellowship](https://www.osvfellowship.com/) | O'Shaughnessy Ventures | Fellowship | Apr 30 | $100k or $10k+ | Equity-free, rolling review |
+| [Founders Inc](https://f.inc/about) | Founders Inc | Accelerator | Rolling | Up to $250k | Emerging tech, SF-based, no pitches |
 
 ---
 
