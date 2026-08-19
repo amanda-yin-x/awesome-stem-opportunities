@@ -51,7 +51,7 @@ Primary geographic focus: **United States and Canada**, though some programs hav
 
 ## All Opportunities
 
-> **Last updated:** 2026-08-18 | **Total:** 29 opportunities
+> **Last updated:** 2026-08-19 | **Total:** 29 opportunities
 
 ### Upcoming Deadlines
 
